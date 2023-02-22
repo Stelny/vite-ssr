@@ -33,8 +33,10 @@ export async function createServer() {
   return { app, vite };
 }
 
+const port = process.env.PORT || 3000;
+
 createServer().then(({ app }) =>
-  app.listen(3033, () => {
-    console.log('http://localhost:3033');
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
   }),
 );
