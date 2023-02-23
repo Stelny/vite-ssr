@@ -6,6 +6,9 @@ import express from 'express'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 
+const PORT = process.env.PORT || 3030;
+
+
 export async function createServer(
   root = process.cwd(),
   isProd = process.env.NODE_ENV === 'production',
@@ -60,7 +63,7 @@ export async function createServer(
 }
 
 createServer().then(({ app }) =>
-  app.listen(5173, () => {
-    console.log('http://localhost:5173')
+  app.listen(PORT, () => {
+    console.log('Running '+PORT)
   })
 )
